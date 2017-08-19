@@ -1,12 +1,15 @@
 package org.app.txema.cocktailme.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Txema on 18/08/2017.
  */
 
-public class Drink {
+public class Drink implements Parcelable{
     @SerializedName("idDrink")
     private String idDrink;
 
@@ -122,7 +125,15 @@ public class Drink {
     private String dateModified;
 
     //1. Constructor
-    public Drink(String thumbnail, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10, String ingredient11, String ingredient12, String ingredient13, String ingredient14, String ingredient15, String measure1, String measure2, String measure3, String measure4, String measure5, String measure6, String measure7, String measure8, String measure9, String measure10, String measure11, String measure12, String measure13, String measure14, String measure15, String dateModified) {
+
+
+    public Drink(String idDrink, String name, String category, String alcoholic, String glass, String instructions, String thumbnail, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10, String ingredient11, String ingredient12, String ingredient13, String ingredient14, String ingredient15, String measure1, String measure2, String measure3, String measure4, String measure5, String measure6, String measure7, String measure8, String measure9, String measure10, String measure11, String measure12, String measure13, String measure14, String measure15, String dateModified) {
+        this.idDrink = idDrink;
+        this.name = name;
+        this.category = category;
+        this.alcoholic = alcoholic;
+        this.glass = glass;
+        this.instructions = instructions;
         this.thumbnail = thumbnail;
         this.ingredient1 = ingredient1;
         this.ingredient2 = ingredient2;
@@ -463,9 +474,107 @@ public class Drink {
     }
 
 
-    //3. Is Valid Verification
-    //TODO
+    //********************************************************
+    //3. Parcelable object to pass Drink object in an Intent
+    //********************************************************
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-    //4. Parcelable functions to pass Film object in an Intent
-    //TODO
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(idDrink);
+        dest.writeString(name);
+        dest.writeString(category);
+        dest.writeString(alcoholic);
+        dest.writeString(glass);
+        dest.writeString(instructions);
+        dest.writeString(thumbnail);
+        dest.writeString(ingredient1);
+        dest.writeString(ingredient2);
+        dest.writeString(ingredient3);
+        dest.writeString(ingredient4);
+        dest.writeString(ingredient5);
+        dest.writeString(ingredient6);
+        dest.writeString(ingredient7);
+        dest.writeString(ingredient8);
+        dest.writeString(ingredient8);
+        dest.writeString(ingredient9);
+        dest.writeString(ingredient10);
+        dest.writeString(ingredient11);
+        dest.writeString(ingredient12);
+        dest.writeString(ingredient13);
+        dest.writeString(ingredient14);
+        dest.writeString(ingredient15);
+        dest.writeString(measure1);
+        dest.writeString(measure2);
+        dest.writeString(measure3);
+        dest.writeString(measure4);
+        dest.writeString(measure5);
+        dest.writeString(measure6);
+        dest.writeString(measure7);
+        dest.writeString(measure8);
+        dest.writeString(measure9);
+        dest.writeString(measure10);
+        dest.writeString(measure11);
+        dest.writeString(measure12);
+        dest.writeString(measure13);
+        dest.writeString(measure14);
+        dest.writeString(measure15);
+        dest.writeString(dateModified);
+    }
+
+    private Drink(Parcel in) {
+        this.idDrink = in.readString();
+        this.name = in.readString();
+        this.category = in.readString();
+        this.alcoholic = in.readString();
+        this.glass = in.readString();
+        this.instructions = in.readString();
+        this.thumbnail = in.readString();
+        this.ingredient1 = in.readString();
+        this.ingredient2 = in.readString();
+        this.ingredient3 = in.readString();
+        this.ingredient4 = in.readString();
+        this.ingredient5 = in.readString();
+        this.ingredient6 = in.readString();
+        this.ingredient7 = in.readString();
+        this.ingredient8 = in.readString();
+        this.ingredient9 = in.readString();
+        this.ingredient10 = in.readString();
+        this.ingredient11 = in.readString();
+        this.ingredient12 = in.readString();
+        this.ingredient13 = in.readString();
+        this.ingredient14 = in.readString();
+        this.ingredient15 = in.readString();
+        this.measure1 = in.readString();
+        this.measure2 = in.readString();
+        this.measure3 = in.readString();
+        this.measure4 = in.readString();
+        this.measure5 = in.readString();
+        this.measure6 = in.readString();
+        this.measure7 = in.readString();
+        this.measure8 = in.readString();
+        this.measure9 = in.readString();
+        this.measure10 = in.readString();
+        this.measure11 = in.readString();
+        this.measure12 = in.readString();
+        this.measure13 = in.readString();
+        this.measure14 = in.readString();
+        this.measure15 = in.readString();
+        this.dateModified = in.readString();
+    }
+
+    public static final Parcelable.Creator<Drink> CREATOR = new Parcelable.Creator<Drink>() {
+        @Override
+        public Drink createFromParcel(Parcel source) {
+            return new Drink(source);
+        }
+
+        @Override
+        public Drink[] newArray(int size) {
+            return new Drink[size];
+        }
+    };
 }

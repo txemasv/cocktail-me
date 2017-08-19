@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</LinearLayout>
+    <!-- cocktail name -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:text="Name"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- thumbnail -->
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/poster_width"
+        android:layout_height="@dimen/poster_height"
+        android:layout_gravity="center"
+        android:layout_below="@+id/name"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/thumbnail"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding" />
+
+    <!-- category -->
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:layout_below="@id/thumbnail"
+        android:text="Instructions"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/title_textSize"/>
+
+    <!-- glass -->
+
+    <!-- instructions -->
+
+    <!-- ingredients -->
+
+
+</RelativeLayout>

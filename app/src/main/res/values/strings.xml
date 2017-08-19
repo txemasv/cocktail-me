@@ -3,4 +3,5 @@
     <string name="action_about_us">About us</string>
     <string name="action_rate_app">Rate us</string>
     <string name="action_ingredients">Ingredients</string>
+    <string name="thumbnail">Thumbnail</string>
 </resources>

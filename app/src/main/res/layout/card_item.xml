@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="@dimen/item_img_width"
-                android:layout_height="@dimen/item_img_height"
+                android:layout_width="@dimen/thumbnail_width"
+                android:layout_height="@dimen/thumbnail_height"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="false"
                 android:scaleType="fitXY" />
@@ -35,7 +35,7 @@
                 android:paddingRight="@dimen/default_padding"
                 android:paddingTop="@dimen/default_padding"
                 android:paddingBottom="@dimen/default_padding"
-                android:textColor="@color/film_title_color"
+                android:textColor="@color/title_color"
                 android:textSize="@dimen/default_textSize" />
 
         </RelativeLayout>

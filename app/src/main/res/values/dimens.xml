@@ -4,8 +4,11 @@
     <dimen name="card_margin">2dp</dimen>
     <dimen name="card_elevation">3dp</dimen>
 
-    <dimen name="item_img_width">150dp</dimen>
-    <dimen name="item_img_height">150dp</dimen>
+    <dimen name="thumbnail_width">150dp</dimen>
+    <dimen name="thumbnail_height">150dp</dimen>
+
+    <dimen name="poster_width">300dp</dimen>
+    <dimen name="poster_height">300dp</dimen>
 
     <dimen name="default_padding">16dp</dimen>
     <dimen name="default_textSize">16sp</dimen>

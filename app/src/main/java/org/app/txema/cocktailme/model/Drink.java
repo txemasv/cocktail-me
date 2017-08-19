@@ -5,6 +5,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Txema on 18/08/2017.
  */
@@ -471,6 +474,56 @@ public class Drink implements Parcelable{
 
     public void setDateModified(String dateModified) {
         this.dateModified = dateModified;
+    }
+
+    public List<String> getIngredientMeasureList() {
+        List<String> listIngredientMeasureList = new ArrayList<>();
+        if(ingredient1 != null && !ingredient1.isEmpty()){
+            listIngredientMeasureList.add(ingredient1 + " " + measure1);
+        }
+        if(ingredient2 != null && !ingredient2.isEmpty()){
+            listIngredientMeasureList.add(ingredient2 + " " + measure2);
+        }
+        if(ingredient3 != null && !ingredient3.isEmpty()){
+            listIngredientMeasureList.add(ingredient3 + " " + measure3);
+        }
+        if(ingredient4 != null && !ingredient4.isEmpty()){
+            listIngredientMeasureList.add(ingredient4 + " " + measure4);
+        }
+        if(ingredient5 != null && !ingredient5.isEmpty()){
+            listIngredientMeasureList.add(ingredient5 + " " + measure5);
+        }
+        if(ingredient6 != null && !ingredient6.isEmpty()){
+            listIngredientMeasureList.add(ingredient6 + " " + measure6);
+        }
+        if(ingredient7 != null && !ingredient7.isEmpty()){
+            listIngredientMeasureList.add(ingredient7 + " " + measure7);
+        }
+        if(ingredient8 != null && !ingredient8.isEmpty()){
+            listIngredientMeasureList.add(ingredient8 + " " + measure8);
+        }
+        if(ingredient9 != null && !ingredient9.isEmpty()){
+            listIngredientMeasureList.add(ingredient9 + " " + measure9);
+        }
+        if(ingredient10 != null && !ingredient10.isEmpty()){
+            listIngredientMeasureList.add(ingredient10 + " " + measure10);
+        }
+        if(ingredient11 != null && !ingredient11.isEmpty()){
+            listIngredientMeasureList.add(ingredient11 + " " + measure11);
+        }
+        if(ingredient12 != null && !ingredient12.isEmpty()){
+            listIngredientMeasureList.add(ingredient12 + " " + measure12);
+        }
+        if(ingredient13 != null && !ingredient13.isEmpty()){
+            listIngredientMeasureList.add(ingredient13 + " " + measure13);
+        }
+        if(ingredient14 != null && !ingredient14.isEmpty()){
+            listIngredientMeasureList.add(ingredient14 + " " + measure14);
+        }
+        if(ingredient15 != null && !ingredient15.isEmpty()){
+            listIngredientMeasureList.add(ingredient15 + " " + measure15);
+        }
+        return listIngredientMeasureList;
     }
 
 

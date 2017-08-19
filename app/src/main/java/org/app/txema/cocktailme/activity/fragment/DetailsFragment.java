@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -17,11 +18,12 @@ import org.app.txema.cocktailme.model.Drink;
  * Created by Txema on 18/08/2017.
  */
 
-public class DetailsFragment  extends Fragment {
+public class DetailsFragment extends Fragment {
 
     private TextView nameView;
     private ImageView thumbnailView;
     private TextView instructionsView;
+    private LinearLayout ingredientsListView;
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
     // either dynamically or via XML layout inflation.
@@ -41,10 +43,11 @@ public class DetailsFragment  extends Fragment {
         nameView = (TextView) view.findViewById(R.id.name);
         instructionsView = (TextView) view.findViewById(R.id.instructions);
         thumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
+        ingredientsListView = (LinearLayout) view.findViewById(R.id.ingredients_list);
     }
 
     public void updateDetailsView(Drink drink) {
-        if(drink != null) {
+        if (drink != null) {
             //Insert drink data into views
             nameView.setText(drink.getName());
             try {
@@ -53,6 +56,18 @@ public class DetailsFragment  extends Fragment {
                 e.printStackTrace();
             }
             instructionsView.setText(drink.getInstructions());
+
+            //Add items programmatically to ingredientsList
+            for (String ingredient : drink.getIngredientMeasureList()) {
+                TextView ingredientTextView = new TextView(getContext());
+                ingredientTextView.setText(ingredient.replace("\n", "").replace("\r", ""));
+                ingredientTextView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                ingredientsListView.addView(ingredientTextView);
+            }
+            TextView ingredientTextView = new TextView(getContext());
+            ingredientTextView.setText(getString(R.string.glass_type_title)+ " " + drink.getGlass());
+            ingredientTextView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            ingredientsListView.addView(ingredientTextView);
         }
     }
 

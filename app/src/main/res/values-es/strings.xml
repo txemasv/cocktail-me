@@ -2,4 +2,6 @@
     <string name="app_name">CocktailMe</string>
     <string name="action_about_us">About us</string>
     <string name="action_rate_app">Rate us</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="glass_type_title">Serve in </string>
 </resources>

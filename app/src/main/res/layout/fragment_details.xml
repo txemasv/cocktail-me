@@ -27,7 +27,22 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding" />
 
-    <!-- category -->
+    <LinearLayout
+        android:id="@+id/ingredients_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:layout_below="@id/thumbnail"
+        android:orientation="vertical"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/title_textSize">
+
+    </LinearLayout>
+
+    <!-- instructions -->
     <TextView
         android:id="@+id/instructions"
         android:layout_width="wrap_content"
@@ -35,16 +50,10 @@
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
         android:paddingTop="@dimen/default_padding"
-        android:layout_below="@id/thumbnail"
+        android:paddingBottom="@dimen/default_padding"
+        android:layout_below="@id/ingredients_list"
         android:text="Instructions"
         android:textColor="@color/title_color"
         android:textSize="@dimen/title_textSize"/>
-
-    <!-- glass -->
-
-    <!-- instructions -->
-
-    <!-- ingredients -->
-
 
 </RelativeLayout>

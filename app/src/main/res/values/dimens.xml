@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+
+    <dimen name="item_img_width">150dp</dimen>
+    <dimen name="item_img_height">150dp</dimen>
+
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="default_textSize">16sp</dimen>
+    <dimen name="title_textSize">16sp</dimen>
+    <dimen name="description_textSize">14sp</dimen>
+
+    <dimen name="detail_backdrop_height">250dp</dimen>
+</resources>

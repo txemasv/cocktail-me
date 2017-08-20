@@ -24,8 +24,8 @@ Touching one item on the list, you can see the drinks details: ingredients, inst
 ### Tablet two-panes
 ![tablet](https://github.com/txemasv/cocktail-me/blob/master/screenshot/tablet.png)
 
-## TheCocktailDB API JSON
-This API provides you a lot of smoothies and cocktails: http://www.thecocktaildb.com/
+## API JSON
+**TheCocktailDB** provides you a lot of smoothies and cocktails: http://www.thecocktaildb.com/
 
 ## License
 Copyright 2017 Jose M. Seoane

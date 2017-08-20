@@ -4,7 +4,7 @@
 Collection of smoothies and cocktails App for **Android**.
 
 The App shows an interactive list with an collection of smoothies and cocktails. 
-Touching one item on the list, you can see the drinks details: ingredients, instruction, glass...
+Touching one item on the list, you can see the drinks details: ingredients, instruction, glass.
 
 **The objective** of this project is to share a complete Android example to create a Json Rest API Client using good design practices.
 
@@ -16,11 +16,11 @@ Touching one item on the list, you can see the drinks details: ingredients, inst
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 
 ### Handset one-pane
-![handset parent](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset01.png)
-![hadset child](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset02.png)
+![handset parent](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane01.png)
+![hadset child](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane02.png)
 
 ### Tablet two-panes
-![tablet](https://github.com/txemasv/cocktail-me/blob/master/screenshot/tablet.png)
+![tablet](https://github.com/txemasv/cocktail-me/blob/master/screenshot/twopanes.png)
 
 ## API JSON
 **TheCocktailDB** provides you a lot of smoothies and cocktails: http://www.thecocktaildb.com/

@@ -16,11 +16,11 @@ Touching one item on the list, you can see the drinks details: ingredients, inst
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 
 ### Handset one-pane
-![handset parent](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane01.png | width=100)
-![hadset child](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane02.png | width=100)
+![onepane01](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane01.png)
+![onepane02](https://github.com/txemasv/cocktail-me/blob/master/screenshot/onepane02.png)
 
 ### Tablet two-panes
-![tablet](https://github.com/txemasv/cocktail-me/blob/master/screenshot/twopanes.png)
+![twopanes](https://github.com/txemasv/cocktail-me/blob/master/screenshot/twopanes.png)
 
 ## API JSON
 **TheCocktailDB** provides you a lot of smoothies and cocktails: http://www.thecocktaildb.com/

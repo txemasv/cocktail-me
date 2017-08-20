@@ -6,4 +6,6 @@
     <string name="thumbnail">Thumbnail</string>
     <string name="ingredients">Ingredients</string>
     <string name="glass_type_title">Serve in</string>
+    <string name="http_problem">Problem getting data from server.</string>
+    <string name="loading_message">Loading</string>
 </resources>

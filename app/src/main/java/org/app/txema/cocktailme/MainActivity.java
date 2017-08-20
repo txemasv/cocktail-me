@@ -1,8 +1,12 @@
 package org.app.txema.cocktailme;
 
+import android.app.ProgressDialog;
+import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private DrinksAdapter adapter;
+    private ProgressDialog progressDialog;
+    private View layoutMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Declare main layout for use with snackBar
-        //TODO layoutMain = findViewById(R.id.activity_main_layout);
+        layoutMain = findViewById(R.id.activity_main_layout);
 
         //Inflate recyclerView layout
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -74,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         Call<DrinksResponse> call = apiService.getNonAlcoholicDrinks();
 
         //Screen orientation (one-pane: portrait, two-pane: landscape)
-        //TODO setScreenOrientation();
+        setScreenOrientation();
 
         //Show Progress dialog
-        //TODO progressDialogShow();
+        progressDialogShow();
 
         //Call server (onResponse, onFailure)
         call.enqueue(callNonAlcoholicDrinks());
@@ -88,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
                 //wait for debugger (NOT IN RUN MODE!)
-                android.os.Debug.waitForDebugger();
-                Log.d(TAG, "wait for debugger ");
+                //android.os.Debug.waitForDebugger();
+                //Log.d(TAG, "wait for debugger ");
 
                 //get status_code
                 int statusCode = response.code();
@@ -105,15 +112,19 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
                         break;
                     default:
+                        responseError(getString(R.string.http_problem));
                         Log.e(TAG, "HTTP CODE " + statusCode);
                         break;
                 }
+                progressDialogHide();
             }
 
             @Override
             public void onFailure(Call<DrinksResponse> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
+                responseError(getString(R.string.http_problem));
+                progressDialogHide();
             }
         };
     }
@@ -134,10 +145,44 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_rate_app) {
-            Toast.makeText(getApplicationContext(), "Ingredients, TODO", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Link to Google Play", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void setScreenOrientation() {
+        Resources res = getResources();
+        boolean twoPanes = res.getBoolean(R.bool.two_panes);
+        if(twoPanes) {
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        } else {
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
+
+    private void progressDialogShow() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage(getString(R.string.loading_message));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    private void progressDialogHide() {
+        if(progressDialog != null && progressDialog.isShowing()) {
+            try {
+                progressDialog.dismiss();
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
+        }
+    }
+
+    private void responseError(String message) {
+        Snackbar snackbar = Snackbar
+                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
+    }
+
 }

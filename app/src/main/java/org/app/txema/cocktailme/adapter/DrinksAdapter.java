@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -63,7 +62,7 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.MyViewHold
 
         //Set drink as default (case two-panes)
         if (!drinks.isEmpty()) {
-            setDefaultDrink(drinks.get(0));
+            setDefaultDrinkInView(drinks.get(0));
         }
     }
 
@@ -88,13 +87,12 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.MyViewHold
 
         //loading main cover
         Glide.with(context).load(drink.getThumbnail()).into(holder.thumbnail);
-        //TODO
 
         //add listeners
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDrinkInDetailsLayout(drink);
+                setDrinkInView(drink);
             }
         });
     }
@@ -104,14 +102,8 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.MyViewHold
         return drinks.size();
     }
 
-    private void setDefaultDrink(Drink drink) {
-        //Only in two-pane mode
-        //TODO
-    }
-
-    private void setDrinkInDetailsLayout(Drink drink) {
-        //
-
+    private void setDefaultDrinkInView(Drink drink) {
+        // Only in two-pane mode
         // Capture the detail fragment from the activity layout
         DetailsFragment detailsFrag = (DetailsFragment)
                 ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
@@ -119,8 +111,19 @@ public class DrinksAdapter extends RecyclerView.Adapter<DrinksAdapter.MyViewHold
         // If detailsFrag is available
         if (detailsFrag != null) {
             //two-pane layout
-            //detailsFrag.updateDetailsView(drink);
-            //TODO
+            detailsFrag.updateDetailsView(drink);
+        }
+    }
+
+    private void setDrinkInView(Drink drink) {
+        // Capture the detail fragment from the activity layout
+        DetailsFragment detailsFrag = (DetailsFragment)
+                ((AppCompatActivity)context).getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
+
+        // If detailsFrag is available
+        if (detailsFrag != null) {
+            //two-pane layout
+            detailsFrag.updateDetailsView(drink);
         } else {
             //one-pane layout
             Intent nextActivity = new Intent(context, DetailsActivity.class);

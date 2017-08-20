@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_padding">32dp</dimen>
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+
+    <dimen name="thumbnail_width">180dp</dimen>
+    <dimen name="thumbnail_height">180dp</dimen>
+
+    <dimen name="poster_width">300dp</dimen>
+    <dimen name="poster_height">300dp</dimen>
+
+    <dimen name="default_padding">16dp</dimen>
     <dimen name="default_textSize">16sp</dimen>
-    <dimen name="title_textSize">24sp</dimen>
-    <dimen name="description_textSize">20sp</dimen>
+    <dimen name="title_textSize">16sp</dimen>
+    <dimen name="details_title_textSize">20sp</dimen>
+    <dimen name="description_textSize">14sp</dimen>
+
+    <dimen name="detail_backdrop_height">250dp</dimen>
 </resources>

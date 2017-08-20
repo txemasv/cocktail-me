@@ -1,6 +1,7 @@
 package org.app.txema.cocktailme.activity.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -34,13 +36,17 @@ public class DetailsFragment extends Fragment {
     private ImageView thumbnailView;
     private TextView instructionsView;
     private LinearLayout ingredientsListView;
+    private ProgressBar progressBar;
+    private View layoutMain;
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
     // either dynamically or via XML layout inflation.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_details, parent, false);
+        layoutMain = inflater.inflate(R.layout.fragment_details, parent, false);
+        progressBar = (ProgressBar)layoutMain.findViewById(R.id.progress_bar);
+        return layoutMain;
     }
 
     // This event is triggered soon after onCreateView().
@@ -65,12 +71,13 @@ public class DetailsFragment extends Fragment {
         Call<DrinksResponse> call = apiService.getDrinkById(drink.getIdDrink());
 
         //Call server (onResponse, onFailure)
+        progressBar.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<DrinksResponse>() {
             @Override
             public void onResponse(Call<DrinksResponse> call, Response<DrinksResponse> response) {
                 //wait for debugger (NOT IN RUN MODE!)
-                android.os.Debug.waitForDebugger();
-                Log.d(TAG, "wait for debugger ");
+                //android.os.Debug.waitForDebugger();
+                //Log.d(TAG, "wait for debugger ");
 
                 //get status_code
                 int statusCode = response.code();
@@ -94,6 +101,7 @@ public class DetailsFragment extends Fragment {
                             instructionsView.setText(drink.getInstructions());
 
                             //Add items programmatically to ingredientsList
+                            ingredientsListView.removeAllViews();
                             for (String ingredient : drink.getIngredientMeasureList()) {
                                 TextView ingredientTextView = new TextView(getContext());
                                 ingredientTextView.setText(ingredient.replace("\n", "").replace("\r", ""));
@@ -107,16 +115,26 @@ public class DetailsFragment extends Fragment {
                         }
                         break;
                     default:
+                        responseError(getString(R.string.http_problem));
                         Log.e(TAG, "HTTP CODE " + statusCode);
                         break;
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<DrinksResponse> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
+                progressBar.setVisibility(View.GONE);
+                responseError(getString(R.string.http_problem));
             }
         });
+    }
+
+    private void responseError(String message) {
+        Snackbar snackbar = Snackbar
+                .make(layoutMain, message, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
     }
 }

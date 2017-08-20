@@ -21,21 +21,26 @@
                 android:id="@+id/thumbnail"
                 android:layout_width="@dimen/thumbnail_width"
                 android:layout_height="@dimen/thumbnail_height"
+                android:paddingTop="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingBottom="@dimen/default_padding"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_centerHorizontal="true"
                 android:clickable="false"
                 android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/drink"
-                android:text="drink"
+                android:text=""
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/thumbnail"
-                android:paddingLeft="@dimen/default_padding"
                 android:paddingRight="@dimen/default_padding"
-                android:paddingTop="@dimen/default_padding"
+                android:paddingLeft="@dimen/default_padding"
                 android:paddingBottom="@dimen/default_padding"
                 android:textColor="@color/title_color"
+                android:layout_centerHorizontal="true"
                 android:textSize="@dimen/default_textSize" />
 
         </RelativeLayout>

@@ -16,8 +16,8 @@ Touching one item on the list, you can see the drinks details: ingredients, inst
 - IU flexible based on Fragments (one-pane handset, two-panes tablet).
 
 ### Handset one-pane
-![onepane01](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset01.png)
-![onepane02](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset02.png)
+![handset01](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset01.png)
+![handset02](https://github.com/txemasv/cocktail-me/blob/master/screenshot/handset02.png)
 
 ### Tablet two-panes
 ![twopanes](https://github.com/txemasv/cocktail-me/blob/master/screenshot/twopanes.png)

@@ -1,5 +1,3 @@
-# cocktail-me
-Good smoothies and cocktails in a complete Android REST API Client example.
 # CocktailMe
 
 ## Description

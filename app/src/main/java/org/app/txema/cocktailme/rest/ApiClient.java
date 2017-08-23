@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-    private static final String BASE_URL = "http://www.thecocktaildb.com/api/json/v1/1/";
+    private static final String API_KEY = "1";
+    private static final String BASE_URL = "http://www.thecocktaildb.com/api/json/v1/" + API_KEY + "/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">CocktailMe</string>
     <string name="action_about_us">About us</string>
-    <string name="action_rate_app">Rate us</string>
+    <string name="action_rate_app">Rate app</string>
     <string name="action_ingredients">Ingredients</string>
     <string name="thumbnail">Thumbnail</string>
     <string name="ingredients">Ingredients</string>
     <string name="glass_type_title">Serve in</string>
     <string name="http_problem">Problem getting data from server.</string>
     <string name="loading_message">Loading</string>
+    <string name="version">Version 1.3</string>
+    <string name="my_email">txemasv@gmail.com</string>
+    <string name="my_github">github.com/txemasv</string>
+    <string name="api_link">www.thecocktaildb.com</string>
+    <string name="app_description">CocktailMe is an Open Source Project made by TxemaSV.</string>
 </resources>

@@ -1,8 +1,10 @@
 package org.app.txema.cocktailme;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -16,10 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import org.app.txema.cocktailme.activity.AboutUs;
 import org.app.txema.cocktailme.adapter.DrinksAdapter;
 import org.app.txema.cocktailme.model.DrinksResponse;
 import org.app.txema.cocktailme.rest.ApiClient;
@@ -143,9 +145,16 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_rate_app) {
-            Toast.makeText(getApplicationContext(), "Link to Google Play", Toast.LENGTH_SHORT).show();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.app.txema.cocktailme"));
+            startActivity(browserIntent);
+            return true;
+        }
+
+        if (id == R.id.action_about_us) {
+            Intent intent = new Intent(this, AboutUs.class);
+            startActivity(intent);
             return true;
         }
 

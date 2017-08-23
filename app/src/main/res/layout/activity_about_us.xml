@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding">
+
+        <!-- logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/about_icon_size"
+            android:layout_height="@dimen/about_icon_size"
+            android:adjustViewBounds="false"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/app_name"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/default_padding"
+            android:layout_margin="@dimen/large_margin"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <!-- description -->
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding"
+            android:text="@string/app_description"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/details_title_textSize"
+            android:layout_below="@+id/logo"/>
+
+        <!-- version -->
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding"
+            android:text="@string/version"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/title_textSize"
+            android:layout_below="@+id/description"/>
+
+        <!-- email -->
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding"
+            android:text="@string/my_email"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/title_textSize"
+            android:layout_below="@+id/version"/>
+
+        <!-- github link-->
+        <TextView
+            android:id="@+id/github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding"
+            android:text="@string/my_github"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/title_textSize"
+            android:layout_below="@+id/email">
+
+        </TextView>
+
+        <!-- api link -->
+        <TextView
+            android:id="@+id/api"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding"
+            android:text="@string/api_link"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/title_textSize"
+            android:layout_below="@+id/github"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

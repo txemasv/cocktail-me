@@ -6,7 +6,9 @@ Collection of smoothies and cocktails App for **Android**.
 The App shows an interactive list with an collection of smoothies and cocktails. 
 Touching one item on the list, you can see the drinks details: ingredients, instruction, glass.
 
-**The objective** of this project is to share a complete Android example to create a Json Rest API Client using good design practices.
+**The objective** of this project is to share a basic Android example to create a Json Rest API Client using good design practices.  
+
+(If you want to see a more **complex example using MVP, RxAndroid, Dagger** you can link to my project [ghibli-films](https://github.com/txemasv/ghibli-films)).
 
 ## Key Features
 - Collapsing tool bar layout.
